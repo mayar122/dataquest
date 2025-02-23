@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LabelSense - Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+        <h2>🌟 Menu</h2>
+      </div>
+    <nav>
+      <ul>
+        <li><a href="/">🏠 Home</a></li>
+        <li><a href="/dashboard">📊 Dashboard</a></li>
+        <li><a href="/result" class="active">🔍 Results</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Header 
+    <header>
+      <h1>LabelSense Results</h1>
+      <p>Defect Detection Results</p>
+    </header> -->
+
+    <!-- Results Section -->
+    <section class="result-section">
+      <h2>Detection Results</h2>
+      <div class="result-grid">
+        <div class="result-card">
+          <h3>Printing Error</h3>
+          <p class="defect-confidence">High Confidence</p>
+          <div class="defect-details">
+            <p><strong>Location:</strong> Top-left corner</p>
+            <p><strong>Severity:</strong> Critical</p>
+          </div>
+        </div>
+        <div class="result-card">
+          <h3>Stain</h3>
+          <p class="defect-confidence">Medium Confidence</p>
+          <div class="defect-details">
+            <p><strong>Location:</strong> Center</p>
+            <p><strong>Severity:</strong> Moderate</p>
+          </div>
+        </div>
+        <div class="result-card">
+          <h3>Structural Flaw</h3>
+          <p class="defect-confidence">Low Confidence</p>
+          <div class="defect-details">
+            <p><strong>Location:</strong> Bottom-right</p>
+            <p><strong>Severity:</strong> Minor</p>
+          </div>
+        </div>
+      </div>
+      <div class="action-buttons">
+        <a href="/dashboard" class="dashboard-link">View Dashboard</a>
+        <a href="/" class="back-link">Upload Another Image</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 LabelSense. All rights reserved.</p>
+    </footer>
+  </main>
+</body>
+</html>

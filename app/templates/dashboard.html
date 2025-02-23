@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LabelSense - Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+        <h2>🌟 Menu</h2>
+      </div>
+    <nav>
+      <ul>
+        <li><a href="/">🏠 Home</a></li>
+        <li><a href="/dashboard" class="active">📊 Dashboard</a></li>
+        <li><a href="/result">🔍 Results</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+
+    <!-- Metrics and Charts Grid -->
+    <div class="dashboard-grid">
+      <!-- Metrics Section -->
+      <section class="metrics-section">
+        <h2>Key Metrics</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <h3>Total Defects Detected</h3>
+            <p>125</p>
+            <div class="metric-trend up">▲ 5%</div>
+          </div>
+          <div class="metric-card">
+            <h3>Defect Rate</h3>
+            <p>12.5%</p>
+            <div class="metric-trend down">▼ 2%</div>
+          </div>
+          <div class="metric-card">
+            <h3>Most Common Defect</h3>
+            <p>Printing Errors</p>
+            <div class="metric-trend up">▲ 8%</div>
+          </div>
+          <div class="metric-card">
+            <h3>Last Detection</h3>
+            <p>5 minutes ago</p>
+            <div class="metric-trend neutral">-</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visualizations Section -->
+      <section class="visualizations-section">
+        <h2>Defect Trends</h2>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>Defects Over Time</h3>
+            <canvas id="defectChart"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Defect Distribution</h3>
+            <canvas id="defectPieChart"></canvas>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 LabelSense. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  <script>
+    // Bar Chart for Defects Over Time
+    const defectChartCanvas = document.getElementById('defectChart').getContext('2d');
+    new Chart(defectChartCanvas, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Defect Count',
+          data: [12, 19, 8, 15, 10, 14],
+          backgroundColor: '#a14aff',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        onClick: (event, elements) => {
+          if (elements.length > 0) {
+            const index = elements[0].index;
+            alert(`You clicked on ${this.data.labels[index]}`);
+          }
+        }
+      }
+    });
+
+    // Pie Chart for Defect Distribution
+    const defectPieChartCanvas = document.getElementById('defectPieChart').getContext('2d');
+    new Chart(defectPieChartCanvas, {
+      type: 'pie',
+      data: {
+        labels: ['Printing Errors', 'Stains', 'Structural Flaws'],
+        datasets: [{
+          label: 'Defect Distribution',
+          data: [45, 30, 25],
+          backgroundColor: ['#a14aff', '#f79e3f', '#d5c0f5']
+        }]
+      },
+      options: {
+        responsive: true,
+        onClick: (event, elements) => {
+          if (elements.length > 0) {
+            const index = elements[0].index;
+            alert(`You clicked on ${this.data.labels[index]}`);
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

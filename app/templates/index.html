@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LabelSense - Index</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>🌟 Menu</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/" class="active">🏠 Home</a></li>
+        <li><a href="/dashboard">📊 Dashboard</a></li>
+        <li><a href="/result">🔍 Results</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+   <!-- <button id="sidebar-toggle" class="sidebar-toggle">☰</button> -->
+
+    <!-- Header -->
+    <header>
+      <h1>LabelSense</h1>
+      <p>Intelligent Defect Detection for Textile Labels</p>
+    </header>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+      <h2>Upload Textile Label Image</h2>
+      <form id="upload-form">
+        <div class="upload-box">
+          <input type="file" id="image-upload" name="image" accept="image/*" required>
+          <label for="image-upload" class="upload-label">
+            <span class="upload-icon">📁</span>
+            <span>Drag & Drop or Click to Upload</span>
+          </label>
+        </div>
+        <button type="submit" class="upload-button">Detect Defects</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 LabelSense. All rights reserved.</p>
+    </footer>
+  </main>
+</body>
